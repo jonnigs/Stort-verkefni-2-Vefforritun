@@ -3,18 +3,28 @@
   <head>
     <meta charset="utf-8">
     <title>Stórt verkefni 2</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700|Roboto+Slab" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="grid.css">
   </head>
   <body>
-    <h1 class="nafn"></h1>
+
     <main>
+      <h1 class="nafn"></h1>
       <div class="video">
-        <video controls>
+        <video allowfullscreen>
 
             Your browser does not support HTML5 video.
-          </video>
+        </video>
+        <div class="takkar">
+          <img src="./img/back.svg" class="reverse"></img>
+          <img src="./img/play.svg" class="play"></img>
+          <img src="./img/mute.svg" class="mute"></img>
+          <img src="./img/fullscreen.svg" class="fullscreen"></img>
+          <img src="./img/next.svg" class="next"></img>
+        </div>
       </div>
+      <button class="tilBaka"><a href="index.html">Til baka</a></button>
     </main>
 
     <script src="script2.js"></script>

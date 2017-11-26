@@ -39,5 +39,53 @@ function show(data, num) {
   var videoSlod = data.videos[num-1].video;
   var slod = document.querySelector('video');
   slod.src = videoSlod;
+  virkjaTakka();
+}
 
+function virkjaTakka() {
+  // Finnum takkana
+  var play = document.querySelector('.play');
+  var fullscreen = document.querySelector('.fullscreen');
+  var mute = document.querySelector('.mute');
+  var back = document.querySelector('.reverse');
+  var next = document.querySelector('.next');
+
+  var video = document.querySelector('video');
+
+  play.addEventListener('click', function() {
+    if (video.paused) {
+      video.play();
+      play.src = "./img/pause.svg";
+    }  else {
+      video.pause();
+      play.src = "./img/play.svg";
+    }
+  });
+
+  fullscreen.addEventListener('click', function() {
+    if (video.requestFullscreen) {
+      video.requestFullscreen();
+      console.log('?');
+    }
+    console.log('!');
+  });
+
+  mute.addEventListener('click', function() {
+    if (video.muted) {
+      video.muted = false;
+      mute.src = "./img/mute.svg";
+    } else {
+      video.muted = true;
+      mute.src = "./img/unmute.svg";
+    }
+
+  });
+
+  back.addEventListener('click', function() {
+    video.currentTime = video.currentTime - 3;
+  });
+
+  next.addEventListener('click', function() {
+    video.currentTime = video.currentTime + 3;
+  });
 }

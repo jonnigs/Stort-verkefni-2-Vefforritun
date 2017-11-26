@@ -88,7 +88,8 @@ function show(gogn) {
       box.addEventListener('click', function () {
         console.log(videoID);
         var currentURL = window.location;
-        window.location = currentURL + 'videos.html' + '?id=' + videoID;
+        var URLanIndex = currentURL.replace("index.html", "");
+        window.location = 'videos.html' + '?id=' + videoID;
       });
     };
 
