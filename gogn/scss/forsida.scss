@@ -1,0 +1,76 @@
+body {
+  max-width: 1200px;
+  h1 {
+    max-width: 500px;
+    width: 500px;
+  }
+
+  .yfirlit {
+    margin: auto;
+    height: auto;
+
+    .flokkur {
+      @media (min-width: 1000px) {
+        padding-top: 2em;
+
+      }
+      h2 {
+        margin-bottom: 30px;
+
+      }
+      .videoposter {
+        @media (min-width: 1000px) {
+          display: flex;
+          justify-content: space-between;
+          flex-wrap: wrap;
+        }
+        .poster {
+          @media (min-width: 1000px) {
+            width: 50%;
+
+          }
+        }
+        .poster:nth-child(2n-1) {
+          @media (min-width: 1000px) {
+            padding-right: 10px;
+          }
+        }
+        .poster:nth-child(2n) {
+          @media (min-width: 1000px) {
+            padding-left: 10px;
+          }
+        }
+      }
+
+        .mynd {
+          position: relative;
+          text-align: center;
+        }
+        img {
+          max-width: 100%;
+        }
+
+        .duration {
+          position: absolute;
+          bottom: 16px;
+          right: 16px;
+          background-color: rgba(0, 0, 0, 0.6);
+          padding: 5px 10px;
+        }
+        h3 {
+          padding-top: 0.5em;
+          font-weight: bold;
+        }
+        .hveGamalt {
+
+        }
+      }
+      hr {
+        margin: 0 auto;
+        width: 83%;
+        border: none;
+        border-bottom: 1px solid #fff;
+        padding-top: 2em;
+      }
+    }
+  }

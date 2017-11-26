@@ -1,4 +1,7 @@
 .sass-cache/
+gogn/node_modules/*
+verkefni10.md
+verkefni10.pdf
 *.css.map
 
 # =========================
@@ -51,3 +54,10 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+gogn/node_modules/.bin/acorn
+gogn/node_modules/.bin/acorn
+gogn/grid.css
+listi-1000px.png
+*.png
+stort-verkefni2.md
+*.pdf

@@ -1,0 +1,37 @@
+* {
+  color: #fff;
+  font-size: 20px;
+
+}
+html {
+  min-width: 500px;
+  max-width: 1200px;
+  @media (min-width: 1240px) {
+    margin: 0 auto;
+  }
+}
+
+body {
+  background-color: rgba(0, 0, 0, 0.8);
+
+  h1 {
+    font-family: 'Roboto Slab', helvetica, sans-serif;
+    font-size: 36px;
+    padding-top: 1em;
+  }
+
+  h2 {
+    font-family: 'Roboto Slab', helvetica, sans-serif;
+    font-size: 28px;
+    padding-left: 0em;
+  }
+
+  h3 {
+    h2 {
+      font-family: 'Roboto Slab', helvetica, sans-serif;
+      font-size: 14px;
+      padding: 1em;
+      padding-left: 0em;
+    }
+  }
+}
