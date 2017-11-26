@@ -63,11 +63,13 @@ function virkjaTakka() {
   });
 
   fullscreen.addEventListener('click', function() {
-    if (video.requestFullscreen) {
-      video.requestFullscreen();
-      console.log('?');
-    }
-    console.log('!');
+    rfs = video.requestFullscreen
+        || video.webkitRequestFullScreen
+        || video.mozRequestFullScreen
+        || video.msRequestFullscreen
+    ;
+
+    rfs.call(video);
   });
 
   mute.addEventListener('click', function() {
@@ -87,5 +89,15 @@ function virkjaTakka() {
 
   next.addEventListener('click', function() {
     video.currentTime = video.currentTime + 3;
+  });
+
+  video.addEventListener('click', function() {
+    if (video.paused) {
+      video.play();
+      play.src = "./img/pause.svg";
+    }  else {
+      video.pause();
+      play.src = "./img/play.svg";
+    }
   });
 }
