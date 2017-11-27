@@ -9,20 +9,35 @@ document.addEventListener('DOMContentLoaded', function () {
 function jsonRequest() {
   var request = new XMLHttpRequest();
   request.open('GET', 'videos.json', true);
+  // Setja loading gif meðan gögn eru sótt og unnið með þau
+  var yfirlit = document.querySelector('.yfirlit');
+  var loading = document.createElement('img');
+  loading.src = 'loading.gif';
+  yfirlit.appendChild(loading);
   // Parsa og keyri show() ef statuskóði er 200
   request.onload = function () {
     if (request.status == 200) {
       var data = JSON.parse(request.response);
+      empty(yfirlit);
       show(data);
     } else {
-      console.log('error');
+      empty(yfirlit);
+      yfirlit.appendChild(document.createTextNode('Ekki tókst að sækja skrá.'));
     }
   };
   request.onerror = function () {
+    empty(yfirlit);
+    yfirlit.appendChild(document.createTextNode('Villa kom upp.'));
     console.error('Óþekkt villa');
   };
-
   request.send();
+}
+
+// Klassískt fall sem tæmir element
+function empty(el) {
+  while (el.firstChild) {
+    el.removeChild(el.firstChild);
+  }
 }
 
 /* Fall sem sér um að birta gögnin sem búið er að sækja*/
@@ -32,16 +47,20 @@ function show(gogn) {
     var div = document.querySelector('.yfirlit'); // Eina div sem er harðkóðað í HTML
     var flokkur = document.createElement('div'); // Div fyrir hvern flokk
     var fyrirsogn = document.createElement('h2'); // Div fyrir fyrirsogn
-    var video = document.createElement('div');
-    var lina = document.createElement('hr');
+    var video = document.createElement('div'); // Heldur utan um allt inni í flokknum
+    var lina = document.createElement('hr'); // Lína á milli flokka
 
     // Bæta klösum fyrir CSS vinnu
     flokkur.classList.add('flokkur');
     fyrirsogn.classList.add('fyrirsogn');
     video.classList.add('videoposter');
 
-    // Byrti fyrirsögn á flokknum
-    fyrirsogn.appendChild(document.createTextNode(gogn.categories[i].title));
+    // Birti fyrirsögn á flokknum
+    if (gogn.categories[i].title == 'undefined') {
+      fyrirsogn.appendChild(document.createTextNode('Flokkur fannst ekki.'));
+    } else {
+      fyrirsogn.appendChild(document.createTextNode(gogn.categories[i].title));
+    }
 
     // Set boxin í hverjum flokk á réttan stað
     div.appendChild(flokkur);
@@ -51,21 +70,21 @@ function show(gogn) {
     // Fer í gegnum hvaða video á að birta í hverjum flokk
 
     var _loop = function _loop() {
-
       // Búa til þau box sem ég þarf
       var box = document.createElement('div'); // box sem fær mynd, nafn á videoi og tímasetningu
       var myndir = document.createElement('div'); // img div
-      var imgElement = document.createElement('img');
-      var duration = document.createElement('div');
+      var imgElement = document.createElement('img'); // Mynd fyrir video
+      var duration = document.createElement('div'); // Lengd á video, fer í overlay
       var nafn = document.createElement('div'); // Nafn á video
-      var hveGamalt = document.createElement('div');
+      var hveGamalt = document.createElement('div'); // Tími frá því að video var póstað
 
-      // Bæta við klösum fyrir CSS
+      // Bæta við klösum fyrir CSS vinnu
       box.classList.add('poster');
       myndir.classList.add('mynd');
       duration.classList.add('duration');
       hveGamalt.classList.add('hveGamalt');
       nafn.classList.add('nafn');
+
       // Setja box á rétta staði í HTML
       video.appendChild(box);
       box.appendChild(myndir);
@@ -74,22 +93,45 @@ function show(gogn) {
 
       // Sækja poster fyrir rétt video
       var videoID = gogn.categories[i].videos[j];
-      imgElement.src = gogn.videos[videoID - 1].poster;
+      // Tékka hvort að poster finnist
+      if (gogn.videos[videoID - 1] == undefined) {
+        var error = document.createElement('p');
+        nafn.appendChild(error);
+        error.appendChild(document.createTextNode('Fannst ekki.'));
+      } else {
+        imgElement.src = gogn.videos[videoID - 1].poster;
+      }
       myndir.appendChild(imgElement);
       myndir.appendChild(duration);
-      var lengd = durationToString(gogn.videos[videoID - 1].duration);
-      duration.appendChild(document.createTextNode(lengd));
+
+      // Tékka hvort að Duration finnist
+      if (gogn.videos[videoID - 1] == undefined) {
+        console.log('Lengd fannst ekki.');
+      } else {
+        var lengd = durationToString(gogn.videos[videoID - 1].duration);
+        duration.appendChild(document.createTextNode(lengd));
+      }
+
       // Sækja og birta titil
-      nafn.appendChild(document.createTextNode(gogn.videos[videoID - 1].title));
+      if (gogn.videos[videoID - 1] == undefined) {
+        console.log('Titill fannst ekki.');
+      } else {
+        nafn.appendChild(document.createTextNode(gogn.videos[videoID - 1].title));
+      }
 
       // Sækja tíma síðan video var búið til og fá viðeigandi streng til birtingar
-      var timi = timiSidan(gogn.videos[videoID - 1].created);
-      hveGamalt.appendChild(document.createTextNode(timi));
+      if (gogn.videos[videoID - 1] == undefined) {
+        console.log('Aldur fannst ekki.');
+      } else {
+        var timi = timiSidan(gogn.videos[videoID - 1].created);
+        hveGamalt.appendChild(document.createTextNode(timi));
+      }
 
+      // Event listener á hvert box til að fara yfir á rétt video
       box.addEventListener('click', function () {
         console.log(videoID);
         var currentURL = window.location;
-        var URLanIndex = currentURL.replace("index.html", "");
+        currentURL.replace("index.html", "");
         window.location = 'videos.html' + '?id=' + videoID;
       });
     };

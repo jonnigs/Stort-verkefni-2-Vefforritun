@@ -63,7 +63,8 @@ body {
           max-height: 3.2rem;
           overflow: hidden;
           font-size: 1.4rem;
-          line-height: 1.6rem;
+          padding-left: 0;
+          text-align: left;
         }
         .hveGamalt {
           padding-bottom: 2em;
@@ -72,7 +73,6 @@ body {
       hr {
         margin: 1em auto 2em auto;
         width: 83%;
-        border: none;
         border-bottom: 1px solid #fff;
         //padding-top: 2em;
       }
