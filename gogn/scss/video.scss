@@ -5,12 +5,14 @@ main {
   justify-content: center;
 
   .titill {
-    display: inline-block;
+    display: inline;
     text-align: center;
     margin: auto;
+    width: auto;
+    max-width: 1200px;
 
     @media (min-width: 1000px) {
-      padding: 1em;
+      padding: 1em 0em;
     }
   }
 
