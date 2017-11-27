@@ -1,41 +1,80 @@
-.nafn {
-  display: inline-block;
-  text-align: center;
-  margin: auto;
-}
-video {
-  width: 100%;
-  padding: 2em 0;
-  position: relative;
-  text-align: center;
-}
-
-.takkar {
-  display: flex;
-  margin: 0 auto;
-  height: auto;
-  justify-content: center;
-}
-.reverse, .play, .mute, .fullscreen, .next {
-  padding: 0 2em;
-  height: 5em;
-}
-
 main {
   display: flex;
   margin: auto;
   flex-flow: column;
   justify-content: center;
-}
 
-button {
-  margin: 5em auto;
-  background-color: rgba(0, 0, 0, 0);
-  border: none;
-  a {
-    font-family: 'Open Sans', helvetica, sans-serif;
-    font-size: 24px;
-    text-decoration: none;
-    font-weight: bold;
+  .nafn {
+    display: inline-block;
+    text-align: center;
+    margin: auto;
+
+    @media (min-width: 1000px) {
+      padding: 1em;
+    }
+  }
+
+  .video {
+    position: relative;
+    text-align: center;
+
+    video {
+      width: 100%;
+      padding: 2em 0;
+
+      @media (min-width: 1000px) {
+        padding-top: 0;
+        padding-bottom: 1em;
+      }
+    }
+
+    .overlay {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 15%;
+      background-color: rgba(0, 0, 0, 0.2);
+      padding: 1em;
+      border-radius: 10px;
+
+      @media (min-width: 1000px) {
+        width: 8%;
+      }
+    }
+  }
+
+  .takkar {
+    display: flex;
+    margin: 0 auto;
+    height: auto;
+    justify-content: center;
+
+    .reverse, .play, .mute, .fullscreen, .next {
+      padding: 0 2em;
+      height: 5em;
+
+      @media (min-width: 1000px) {
+        padding: 0 0.5em;
+        height: 3em;
+      }
+    }
+  }
+
+  button {
+    margin: 5em auto;
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+
+    @media (min-width: 1000px) {
+      margin: 3em auto;
+    }
+
+    a {
+      font-family: 'Open Sans', helvetica, sans-serif;
+      font-size: 24px;
+      text-decoration: none;
+      font-weight: bold;
+    }
   }
 }

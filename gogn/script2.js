@@ -49,16 +49,20 @@ function virkjaTakka() {
   var mute = document.querySelector('.mute');
   var back = document.querySelector('.reverse');
   var next = document.querySelector('.next');
-
+  var overlay = document.querySelector('.overlay');
+  var videoDiv = document.querySelector('.video');
   var video = document.querySelector('video');
 
   play.addEventListener('click', function() {
     if (video.paused) {
       video.play();
       play.src = "./img/pause.svg";
+      overlay.style.display = 'none';
     }  else {
       video.pause();
       play.src = "./img/play.svg";
+      overlay.src = "./img/play.svg";
+      overlay.style.display = 'block';
     }
   });
 
@@ -91,13 +95,16 @@ function virkjaTakka() {
     video.currentTime = video.currentTime + 3;
   });
 
-  video.addEventListener('click', function() {
+  videoDiv.addEventListener('click', function() {
     if (video.paused) {
       video.play();
       play.src = "./img/pause.svg";
+      overlay.style.display = 'none';
     }  else {
       video.pause();
       play.src = "./img/play.svg";
+      overlay.src = "./img/play.svg";
+      overlay.style.display = 'block';
     }
   });
 }

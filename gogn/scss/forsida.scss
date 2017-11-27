@@ -15,8 +15,7 @@ body {
 
       }
       h2 {
-        margin-bottom: 30px;
-
+        margin: 1em auto;
       }
       .videoposter {
         @media (min-width: 1000px) {
@@ -57,20 +56,25 @@ body {
           background-color: rgba(0, 0, 0, 0.6);
           padding: 5px 10px;
         }
-        h3 {
+        .nafn {
           padding-top: 0.5em;
           font-weight: bold;
+          display: block;
+          max-height: 3.2rem;
+          overflow: hidden;
+          font-size: 1.4rem;
+          line-height: 1.6rem;
         }
         .hveGamalt {
-
+          padding-bottom: 2em;
         }
       }
       hr {
-        margin: 0 auto;
+        margin: 1em auto 2em auto;
         width: 83%;
         border: none;
         border-bottom: 1px solid #fff;
-        padding-top: 2em;
+        //padding-top: 2em;
       }
     }
   }

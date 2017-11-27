@@ -1,13 +1,13 @@
 document.addEventListener('DOMContentLoaded', () => {
-  saekjaVideo();
+  jsonRequest();
 });
 
 /* Fallið sem sækir gögn í .json skrá með ajax og kallar svo á
 *  fall sem sér um að birta gögn */
-function saekjaVideo() {
+function jsonRequest() {
   var request = new XMLHttpRequest();
-
   request.open('GET', 'videos.json', true);
+  // Parsa og keyri show() ef statuskóði er 200
   request.onload = function () {
     if (request.status == 200) {
       var data = JSON.parse(request.response);
@@ -55,7 +55,7 @@ function show(gogn) {
       const myndir = document.createElement('div'); // img div
       const imgElement = document.createElement('img');
       const duration = document.createElement('div');
-      const nafn = document.createElement('h3'); // Nafn á video
+      const nafn = document.createElement('div'); // Nafn á video
       const hveGamalt = document.createElement('div');
 
       // Bæta við klösum fyrir CSS
@@ -63,6 +63,7 @@ function show(gogn) {
       myndir.classList.add('mynd');
       duration.classList.add('duration');
       hveGamalt.classList.add('hveGamalt');
+      nafn.classList.add('nafn');
       // Setja box á rétta staði í HTML
       video.appendChild(box);
       box.appendChild(myndir);
