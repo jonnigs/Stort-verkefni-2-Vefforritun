@@ -25,8 +25,8 @@ html { /* stylelint-disable-line */
 
 main { /* stylelint-disable-line */
   display: block;
-  max-width: $max-width;
   width: 100%;
+  max-width: $max-width;
   margin: 0 auto;
   overflow-x: hidden;
 }

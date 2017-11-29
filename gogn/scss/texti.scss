@@ -1,8 +1,8 @@
 * {
-  color: #eee;
   font-size: 20px;
-
+  color: #eee;
 }
+
 html {
   min-width: 500px;
   max-width: 1200px;
@@ -14,25 +14,25 @@ html {
 body {
   background-color: rgba(0, 0, 0, 0.8);
 
-  h1 {
-    font-family: 'Open Sans', helvetica, sans-serif;
-    font-size: 40px;
+  h1 { // stylelint-disable-line
     padding-top: 1em;
+    font-family: "Open Sans", helvetica, sans-serif;
+    font-size: 40px;
   }
 
-  h2 {
-    font-family: 'Open Sans', helvetica, sans-serif;
+  h2 { // stylelint-disable-line
+    padding-left: 0;
+    font-family: "Open Sans", helvetica, sans-serif;
     font-size: 28px;
-    padding-left: 0em;
   }
 
-  .nafn {
-    font-family: 'Open Sans', helvetica, sans-serif;
+  .nafn { // stylelint-disable-line
+    font-family: "Open Sans", helvetica, sans-serif;
     font-size: 18px;
   }
 
-  .hveGamalt {
-    font-family: 'Open Sans', helvetica, sans-serif;
+  .hveGamalt { // stylelint-disable-line
+    font-family: "Open Sans", helvetica, sans-serif;
     font-size: 16px;
   }
 }

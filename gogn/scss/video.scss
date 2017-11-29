@@ -6,13 +6,13 @@ main {
 
   .titill {
     display: inline;
-    text-align: center;
-    margin: auto;
     width: auto;
     max-width: 1200px;
+    margin: auto;
+    text-align: center;
 
     @media (min-width: 1000px) {
-      padding: 1em 0em;
+      padding: 1em 0;
     }
   }
 
@@ -34,11 +34,11 @@ main {
       position: absolute;
       top: 50%;
       left: 50%;
-      transform: translate(-50%, -50%);
       width: 15%;
-      background-color: rgba(0, 0, 0, 0.2);
       padding: 1em;
+      background-color: rgba(0, 0, 0, 0.2);
       border-radius: 10px;
+      transform: translate(-50%, -50%);
 
       @media (min-width: 1000px) {
         width: 8%;
@@ -48,17 +48,21 @@ main {
 
   .takkar {
     display: flex;
-    margin: 0 auto;
     height: auto;
+    margin: 0 auto;
     justify-content: center;
 
-    .reverse, .play, .mute, .fullscreen, .next {
-      padding: 0 2em;
+    .reverse,
+    .play,
+    .mute,
+    .fullscreen,
+    .next {
       height: 5em;
+      padding: 0 2em;
 
       @media (min-width: 1000px) {
-        padding: 0 0.5em;
         height: 3em;
+        padding: 0 0.5em;
       }
     }
   }
@@ -66,17 +70,16 @@ main {
   button {
     margin: 5em auto;
     background-color: rgba(0, 0, 0, 0);
-    border: none;
 
     @media (min-width: 1000px) {
       margin: 3em auto;
     }
 
-    a {
-      font-family: 'Open Sans', helvetica, sans-serif;
+    a { // stylelint-disable-line
+      font-family: "Open Sans", helvetica, sans-serif;
       font-size: 24px;
-      text-decoration: none;
       font-weight: bold;
+      text-decoration: none;
     }
   }
 }
