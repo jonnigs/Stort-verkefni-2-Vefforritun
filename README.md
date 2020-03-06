@@ -1,4 +1,4 @@
-# Stort-verkefni-2-Vefforritun
+# Stort verkefni 2 - Vefforritun 1
 Javascript video verkefni
 
 Forsíða les upplýsingar úr json skrá og birtir síðuna eftir því.
