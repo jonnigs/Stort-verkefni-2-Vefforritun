@@ -22,7 +22,7 @@
     "eslint": "4.9.0",
     "eslint-config-airbnb-base": "12.1.0",
     "eslint-plugin-import": "2.8.0",
-    "node-sass": "4.5.3",
+    "node-sass": "7.0.0",
     "npm-run-all": "4.1.1",
     "stylelint": "8.1.1",
     "stylelint-config-primer": "2.0.1"
